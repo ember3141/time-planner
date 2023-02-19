@@ -1,0 +1,83 @@
+@font-face {
+    font-family: Figtree-Black;
+    src: url(figTree/Figtree-Black.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-BlackItalic;
+    src: url(figTree/Figtree-BlackItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-Bold;
+    src: url(figTree/Figtree-Bold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-BoldItalic;
+    src: url(figTree/Figtree-BoldItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-ExtraBold;
+    src: url(figTree/Figtree-ExtraBold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-ExtraBoldItalic;
+    src: url(figTree/Figtree-ExtraBoldItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-Italic;
+    src: url(figTree/Figtree-Italic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-Light;
+    src: url(figTree/Figtree-Light.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-LightItalic;
+    src: url(figTree/Figtree-LightItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-Medium;
+    src: url(figTree/Figtree-Medium.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-MediumItalic;
+    src: url(figTree/Figtree-MediumItalic.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-Regular;
+    src: url(figTree/Figtree-Regular.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-SemiBold;
+    src: url(figTree/Figtree-SemiBold.ttf);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Figtree-SemiBoldItalic;
+    src: url(figTree/Figtree-SemiBoldItalic.ttf);
+    font-display: swap;
+}
