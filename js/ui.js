@@ -67,14 +67,23 @@ var uiText = {
         `
     },
     "newTrackerPage":{
-        "onload": "",
+        "onload": "timeInc(\'clear\')",
         "content": `
-        <p>Name of tracker</p>
-        <input type=\"text\" class=\"text-input\" id=\"trackerNameSet\"></input>
-        <p>style</p>
-        <input type=\"text\" class=\"text-input\" id=\"trackerColorSet\"></input>
+        <input type=\"text\" title=\"unintel\" class=\"text-input\" placeholder=\"Name of tracker\" autocomplete=\"off\" id=\"trackerNameSet\"></input>
+        <input type=\"text\" title=\"unintel\" class=\"text-input\"  placeholder=\"Style\" autocomplete=\"off\" id=\"trackerColorSet\"></input>
+        <div class=\"time-select\">
+        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'hour\')\">↑</button>
+        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'min\')\">↑</button>
+        <br>
+        <span id=\"the-hours\" class=\"fakep\">0</span>
+        <span class=\"fakep\">:</span>
+        <span id=\"the-mins\" class=\"fakep\">0</span>
+        <br>
+        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'hour\')\">↓</button>
+        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'min\')\">↓</button>
+        </div>
 
-        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value);page(\'selectorPage\')\">submit</button>
+        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc());page(\'selectorPage\')\">submit</button>
         `
     },
     "welcomePage": {
@@ -92,11 +101,8 @@ var uiText = {
         <div class=\'selection-pos\'>
         <div id=\"selection-buttons\" class=\'selection-buttons\'>        
         <div style=\"\"><button id=\"addButton\" onclick=\"page(\'newTrackerPage\')\">add tracker</button></div>
-        <div style=\"background-color:rgba(0, 144, 0, 0.5);\"><button id=\"addButton\">add item</button></div>
-        <div style=\"background-color:rgba(0, 0, 144, 0.5);\"><button id=\"addButton\">add item</button></div>
         </div>
         <div id=\"selection-grid\" class=\'selection-grid\'>
-        <div style=\"background-color:rgba(144, 144, 0, 0.5);\">large chart</div>
         </div>
         </div>
     
@@ -114,6 +120,14 @@ var uiText = {
         },
         {
             "selector": "p",
+            "styles": {
+                "color": "#FFF",
+                "fontFamily": "Figtree-Medium"
+            }
+  
+        },
+        {
+            "selector": ".fakep",
             "styles": {
                 "color": "#FFF",
                 "fontFamily": "Figtree-Medium"

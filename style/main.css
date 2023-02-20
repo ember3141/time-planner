@@ -34,6 +34,13 @@ p {
     font-size: calc(1.25vw + 1.25vh);
 }
 
+.fakep {
+    /* color: #FFF;
+    font-family: Figtree-Medium; */
+    font-size: calc(1.25vw + 1.25vh);
+    margin:0;
+}
+
 db {
     /* color: #FFF; */
     cursor: default;
@@ -81,7 +88,7 @@ button {
     border: none;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: 1em;
+    margin: calc(0.5vw + 0.5vh);
 }
 
 button:hover {
@@ -91,28 +98,31 @@ button:hover {
     -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
     font-family: Figtree-SemiBold;
-    font-size: calc(1.35vw + 1.35vh);
+    font-size: calc(1.5vw + 1.5vh);
     border-radius: 5px;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: 1em;
+    margin: calc(0.5vw + 0.5vh);
     cursor: pointer;
 }
 
 
 button:active {
-    /* color: #FFF;
-    background-color: #111111; */
-    -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+
+
+        /* color: #FFF;
+    background-color: #212121; */
     transition: background-color 0.1s;
+    -moz-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
     font-family: Figtree-SemiBold;
     font-size: calc(1.3vw + 1.3vh);
     border-radius: 5px;
+    border: none;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: 1em;
+    margin: calc(0.5vw + 0.5vh);
 }
 
 .header {
@@ -231,6 +241,7 @@ button:active {
     display:flex;
     flex-direction: column ;
     justify-content: center;
+    margin:calc(0.5vw + 0.5vh);
 }
 
 .selection-grid { 
@@ -240,7 +251,15 @@ button:active {
     height:100%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-flow: column;
+    row-gap: 1vw;
+    column-gap: 1vh;
+    
 }
+
+.tracker-containers{
+    border-radius: 15px;
+}
+
 
 .text-input{
     border-radius: 5px;
@@ -250,6 +269,8 @@ button:active {
     -webkit-box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.2);
     font-size: calc(1vw + 1vh);
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     
 }
 
@@ -259,3 +280,21 @@ button:active {
     -webkit-box-shadow: 0 0 30px 25px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 30px 25px rgba(0, 0, 0, 0.2);
 }
+
+.time-button{
+        padding:0.3em;
+        margin:0;
+}
+
+
+.time-button:hover{
+    padding:0.31em;
+    margin:0;
+}
+
+
+.time-button:active{
+    padding:0.3em;
+    margin:0;
+}
+
