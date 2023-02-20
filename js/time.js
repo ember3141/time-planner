@@ -16,7 +16,8 @@ runAtTime(timeInfo.deadline.hours,timeInfo.deadline.mins,resetTrackers);
 
 var hours = 0;
 var mins = 0;
-function addTracker(name,color,hour,min){
+var secs = 0;
+function addTracker(name,color,hour,min,sec){
    console.log(timeInfo.trackers[0])
     if(name=="updatePage"){
         if (timeInfo.trackers[0]==0){
@@ -28,15 +29,15 @@ function addTracker(name,color,hour,min){
             <div style=\"background:`+timeInfo.trackers[i].color+`;\" class=\"tracker-containers\">
             <p id = \"`+timeInfo.trackers[i].name+`_display\"></p>
 
-            <button>▶</button>
-            <button> | |</button>
+            <button onclick=\"toggleRun(\'`+timeInfo.trackers[i].name+`\')\">▶/ | |</button>
             <button onclick=\"removeTracker(\'`+timeInfo.trackers[i].name+`\')\">🗑</button>
             </div>
             `
         }
         
     } else {
-        var trackerObject = {"name":name,"color":color,"hours":hour,"mins":min};
+        secAmt=(hour*3600)+(min*60)+sec
+        var trackerObject = {"name":name,"color":color,"secs":secAmt,"running":-1};
         if(timeInfo.trackers[0]==0){
             timeInfo.trackers.unshift(trackerObject);
             console.log(timeInfo.trackers)
@@ -55,7 +56,7 @@ function addTracker(name,color,hour,min){
 }
 
 function removeTracker(name){
-    console.log(timeInfo.trackers);
+
     var yay = false;
     for(var i=0;i<timeInfo.trackers.length;i++){
         if(name==timeInfo.trackers[i].name){
@@ -69,16 +70,23 @@ function removeTracker(name){
     } else {
         console.error("wtf I couldn't find the thing to delete :(")
     }
-    console.log(timeInfo.trackers);
+
 }
 
 function timeInc(moreless,minhour){
 
     theHours=document.getElementById("the-hours");
     theMins=document.getElementById("the-mins");
+    theSecs=document.getElementById("the-secs");
 
     if(moreless=="more"){
-        if(minhour=="min"){
+        if(minhour=="secs"){
+            if(secs==59){
+                secs=0;
+            }else{
+                secs++;
+            }
+        } else if(minhour=="min"){
             if(mins==59){
                 mins=0;
             }else{
@@ -88,7 +96,13 @@ function timeInc(moreless,minhour){
             hours++;
         }
     } else if(moreless=="less"){
-        if(minhour=="min"){
+        if(minhour=="secs"){
+            if(secs==0){
+                secs=59;
+            } else{
+                secs--;
+            }
+        } else  if(minhour=="min"){
             if(mins==0){
                 mins=59;
             } else{
@@ -100,11 +114,13 @@ function timeInc(moreless,minhour){
     }  else   if(moreless=='clear'){
         hours=0;
         mins=0;
+        secs=0;
     } else {
         console.error("timeInc() has been used wrong :/");
     }
     theHours.innerHTML=hours;
     theMins.innerHTML=mins;
+    theSecs.innerHTML=secs;
 }
 
 function currentTimeInc(hourmin){
@@ -112,6 +128,8 @@ function currentTimeInc(hourmin){
         return hours;
     } else if(hourmin=="min"){
         return mins;
+    } else if(hourmin=="sec"){
+        return secs;
     }
 }
 
@@ -145,9 +163,15 @@ function refreshTime() {
 
     if(gls("page")==1||gls("page")=="selectorPage"){
         if(timeInfo.trackers[0]!=0){
-            console.log(timeInfo.trackers)
     for(var i=0;i<timeInfo.trackers.length;i++){
-        document.getElementById(timeInfo.trackers[i].name+"_display").innerHTML=timeInfo.trackers[i].name+" "+timeInfo.trackers[i].hours;
+        if(timeInfo.trackers[i].running==1){
+            timeInfo.trackers[i].secs--;
+        }
+        var hourCalc =Math.floor(timeInfo.trackers[i].secs/3600);
+        var minCalc = Math.floor((timeInfo.trackers[i].secs-hourCalc*3600)/60);
+        var secCalc = timeInfo.trackers[i].secs-(hourCalc*3600+minCalc*60);
+        var thingToDisplay=""+hourCalc+":"+minCalc+":"+secCalc+""
+        document.getElementById(timeInfo.trackers[i].name+"_display").innerHTML=timeInfo.trackers[i].name+" "+thingToDisplay+" ";
     }
 }
 }
@@ -157,6 +181,20 @@ timeDisplay.innerHTML = "<p class=\'fakep\'>"+remainingTime+"</p>"
 setStyle();
   }
     setInterval(refreshTime, 1000);
+
+function toggleRun(name){
+    var yay = false;
+    for(var i=0;i<timeInfo.trackers.length;i++){
+        if(name==timeInfo.trackers[i].name){
+            timeInfo.trackers[i].running=timeInfo.trackers[i].running*-1;
+            yay=true;
+        }
+    }
+    if(yay!=true){
+        console.error("wtf I couldn't find the thing to toggle :(")
+    } 
+}
+
 
 function resetTrackers(){
     

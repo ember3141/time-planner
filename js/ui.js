@@ -83,16 +83,20 @@ var uiText = {
         <div class=\"time-select\">
         <button class=\"time-button\" onclick=\"timeInc(\'more\',\'hour\')\">↑</button>
         <button class=\"time-button\" onclick=\"timeInc(\'more\',\'min\')\">↑</button>
+        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'secs\')\">↑</button>
         <br>
         <span id=\"the-hours\" class=\"fakep\">0</span>
         <span class=\"fakep\">:</span>
         <span id=\"the-mins\" class=\"fakep\">0</span>
+        <span class=\"fakep\">:</span>
+        <span id=\"the-secs\" class=\"fakep\">0</span>
         <br>
         <button class=\"time-button\" onclick=\"timeInc(\'less\',\'hour\')\">↓</button>
         <button class=\"time-button\" onclick=\"timeInc(\'less\',\'min\')\">↓</button>
+        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'secs\')\">↓</button>
         </div>
 
-        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc(\'hour\'),currentTimeInc(\'min\'));page(\'selectorPage\')\">submit</button>
+        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc(\'hour\'),currentTimeInc(\'min\'),currentTimeInc(\'sec\'));page(\'selectorPage\')\">submit</button>
         `
     },
     "welcomePage": {

@@ -146,13 +146,18 @@ button:active {
     text-align: center;
     width: auto;
     height: calc(2.25vh + 1.75em);
-
-
     /* background-color: rgba(0, 255, 255, 0.377); */
-
 }
 
-.headerButtonContain:hover .dropdown {
+.headerButton:hover + .dropdown {
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+    /* background-color: rgba(0, 255, 255, 0.377) !important; */
+}
+
+.dropdown:hover{
+    pointer-events: all;
     visibility: visible;
     opacity: 1;
 }
