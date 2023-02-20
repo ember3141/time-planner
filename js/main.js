@@ -14,25 +14,37 @@ function rls(a) {
   console.trace();
 }
 
-function lsSetStored() { //sets localstorage
+function lsSetStyle() { //sets localstorage
   sls("uiStyle", JSON.stringify(uiStyle));
-  sls("timeInfo", JSON.stringify(timeInfo));
+
   console.log("%c ls style has been set!", 'color: blue; font-size: 15px')
 }
 
-function lsGetStored() { //sets variable
+function lsGetStyle() { //sets variable
   uiStyle = JSON.parse(gls("uiStyle"));
-  timeInfo = JSON.parse(gls("timeInfo"));
+  
   console.log("%c ls style has been retreived!", 'color: blue; font-size: 15px')
 }
 
+function lsSetTime(){
+    sls("timeInfo", JSON.stringify(timeInfo));   
+}
+
+function lsGetTime(){
+    timeInfo = JSON.parse(gls("timeInfo"));
+}
 //rls('uiStyle')
 // console.log(uiStyle)
 
 if(gls("uiStyle")!=null){
-   lsGetStored();
+   lsGetStyle();
  }
-lsSetStored();
+lsSetStyle();
+
+if(gls("timeInfo")!=null){
+    lsGetTime();
+  }
+ lsSetTime();
 
 function docId(id){
     return document.getElementById(id);
@@ -116,6 +128,7 @@ if (gls('page') == undefined || gls('page') == null) { //if theres no page, it w
 // alert(Object.keys(uiText[dataList][0].content[0]));
 
 writeDropdown("header", "headerOptions", "nav");
+docId("header").innerHTML+="<div id=\"headerClock\"></div>";
 
 function writeDropdown(place, dataList, type) { //type:"nav" type:"select"
   var header = docId(place);

@@ -298,3 +298,19 @@ button:active {
     margin:0;
 }
 
+
+
+#settings-grid{
+    display:grid;
+    width:100%;
+    height:100%;
+    grid-template-columns: 1fr 1fr;
+    /* grid-auto-flow: column; */
+    row-gap: 1vw;
+    column-gap: 1vh;
+}
+
+#headerClock{
+    margin-left:auto;
+    margin-right:1vw;
+}

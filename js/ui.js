@@ -60,10 +60,19 @@ var uiText = {
     "settingsPage": {
         "onload": "stylerDropdown()",
         "content": `
-        <input type=\"text\" id=\"backgroundInput\" style=\"background-color:red;\" class=\"text-input\"></input>
-        <input type=\"text\" id=\"propertyInput\" class=\"text-input\"></input>
-        <button id=\"frog\" onclick=\"processStyle()\">set</button>
-        <div id=\"dropdown\"></div>
+        <div id=\"settings-grid\">
+            <div id=\"stylerstuff\">
+                <input type=\"text\" id=\"backgroundInput\" placeholder=\"style\" class=\"text-input\"></input>
+                 <input type=\"text\" id=\"propertyInput\" placeholder=\"name of style thing\" class=\"text-input\"></input>
+                <button onclick=\"processStyle()\">set</button>
+                <div id=\"dropdown\"></div>
+            </div>
+            <div id=\"deadlineStuff\">
+            <p>deadline</p>
+            <input type="time" id="appt" name="appt" min="09:00" max="18:00">
+            <button onclick=\"processDeadline(docId(\'appt\').value)\">set</button>
+            </div>
+        </div>
         `
     },
     "newTrackerPage":{
@@ -83,7 +92,7 @@ var uiText = {
         <button class=\"time-button\" onclick=\"timeInc(\'less\',\'min\')\">↓</button>
         </div>
 
-        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc());page(\'selectorPage\')\">submit</button>
+        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc(\'hour\'),currentTimeInc(\'min\'));page(\'selectorPage\')\">submit</button>
         `
     },
     "welcomePage": {
@@ -236,6 +245,13 @@ var uiText = {
     ]
   }
 
-  var timeInfo = [
+  var timeInfo = {
+    offset : -5,
+    deadline: {
+        hours:22,
+        mins:0
+    },
+    trackers: [0],
+};
 
-  ]
+    
