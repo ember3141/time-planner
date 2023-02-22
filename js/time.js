@@ -69,7 +69,7 @@ function addTracker(name,color,hour,min,sec){
         console.log(timeInfo.trackers)
         console.log(name+color);
         // alert(timeInfo.trackers[0].color)
-       // document.getElementById("selection-grid").innerHTML+="<div style=\"background-color:rgba(0, 144, 0, 0.5);\">"+name+"</div>"
+       // docId("selection-grid").innerHTML+="<div style=\"background-color:rgba(0, 144, 0, 0.5);\">"+name+"</div>"
     }
     lsSetTime();
     
@@ -95,9 +95,9 @@ function removeTracker(name){
 
 function timeInc(moreless,minhour){
 
-    theHours=document.getElementById("the-hours");
-    theMins=document.getElementById("the-mins");
-    theSecs=document.getElementById("the-secs");
+    theHours=docId("the-hours");
+    theMins=docId("the-mins");
+    theSecs=docId("the-secs");
 
     if(moreless=="more"){
         if(minhour=="secs"){
@@ -248,7 +248,7 @@ function loop(){
 }
 
 }
-const timeDisplay = document.getElementById("headerClock");
+const timeDisplay = docId("headerClock");
 const remainingTime =  " "+deadlineInfo("hours")-(currentHour()+1)+":"+(60-currentMin())+":"+(60-currentSec())+" ";
 
 timeDisplay.innerHTML = "<p class=\'fakep\'>"+remainingTime+"</p>"
@@ -262,10 +262,10 @@ setStyle();
         var secCalc = timeInfo.trackers[i].secs-(hourCalc*3600+minCalc*60);
         var thingToDisplay=""+hourCalc+":"+minCalc+":"+secCalc+""
         var timePercent= (timeInfo.trackers[i].secs/timeInfo.trackers[i].startSecs)*1;
-        document.getElementById(timeInfo.trackers[i].name+"_display").innerHTML=timeInfo.trackers[i].name+" "+thingToDisplay+" ";
+        docId(timeInfo.trackers[i].name+"_display").innerHTML=timeInfo.trackers[i].name+" "+thingToDisplay+" ";
         docId(timeInfo.trackers[i].name+"_length").style.height=docId(timeInfo.trackers[i].name+"_contain").offsetHeight+"px"
-        document.getElementById(timeInfo.trackers[i].name+"_length").style.height=((docId(timeInfo.trackers[i].name+"_contain").offsetHeight)) +"px";
-        document.getElementById(timeInfo.trackers[i].name+"_length").style.width=((docId(timeInfo.trackers[i].name+"_contain").offsetWidth)*timePercent) +"px";
+        docId(timeInfo.trackers[i].name+"_length").style.height=((docId(timeInfo.trackers[i].name+"_contain").offsetHeight)) +"px";
+        docId(timeInfo.trackers[i].name+"_length").style.width=((docId(timeInfo.trackers[i].name+"_contain").offsetWidth)*timePercent) +"px";
 
         // console.log(timeInfo.trackers[0].secs)
     }
@@ -280,8 +280,6 @@ setStyle();
         stuffToAdd+="<div class=\"dayBarItems\" style=\"flex-basis:"+trackerItemPercent+"%;order:"+(i)+";background:"+timeInfo.trackers[i].color+"\"><p class=\"dayBarNames\" style=\"margin:0\">"+timeInfo.trackers[i].name+"</p></div>";
     }
     docId("dayBar").innerHTML=""+stuffToAdd+"<div class=\"dayBarItems\"  style=\"flex-basis:"+currentItemPercent+"%;background:"+docId("trackerColorSet").value+";order:100\"><p style=\"margin:0\" class=\"dayBarNames\">"+docId("trackerNameSet").value+"</p></div>";
-   
-    console.log(totalTime)
 }
 setStyle();
 }
