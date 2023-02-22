@@ -4,20 +4,20 @@ function gls(a) {
 
 function sls(a, b) {
   localStorage.setItem(a, b);
-  console.log("%c'" + a + "' has been set with '" + b + "'!", 'color: lightgreen; font-size: 15px')
-  console.trace();
+//   console.log("%c'" + a + "' has been set with '" + b + "'!", 'color: lightgreen; font-size: 15px')
+//   console.trace();
 }
 
 function rls(a) {
   localStorage.removeItem(a);
-  console.log("%c'" + a + "' has been removed!", 'color: orange; font-size: 15px')
-  console.trace();
+//   console.log("%c'" + a + "' has been removed!", 'color: orange; font-size: 15px')
+//   console.trace();
 }
 
 function lsSetStyle() { //sets localstorage
   sls("uiStyle", JSON.stringify(uiStyle));
 
-  console.log("%c ls style has been set!", 'color: blue; font-size: 15px')
+//   console.log("%c ls style has been set!", 'color: blue; font-size: 15px')
 }
 
 function lsGetStyle() { //sets variable
@@ -182,9 +182,11 @@ function setSelect(header, name) {
 // Object.keys(uiStyle.elements[0]) returns 'names'
 // Object.values(uiStyle.elements[0]) returns' values' of names
 
-function writePage(){
-    console.log(docId("content-container"));
-                docId("content-container").innerHTML = getPageContent();
+function writePage(){ 
+
+  
+        docId("content-container").innerHTML = getPageContent();
+                
     
       var thingToGet;
   if (isNaN(parseInt(gls('page'))) == false) {

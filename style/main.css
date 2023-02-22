@@ -2,8 +2,20 @@ html {
     scroll-behavior: smooth;
 }
 
-* {
+@keyframes append-animate {
+	from {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+	to {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
+
+*:not(.dayBarItems, #dayBar, #dayDisp, .dayBarNames, .fakep) {
     transition: 0.4s;
+    animation: append-animate .2s ease-out;
 }
 
 body {
@@ -32,6 +44,12 @@ p {
     /* color: #FFF;
     font-family: Figtree-Medium; */
     font-size: calc(1.25vw + 1.25vh);
+}
+
+p1 {
+    /* color: #FFF; */
+    font-family: Figtree-Medium; 
+    font-size: calc(1vw + 1vh);
 }
 
 .fakep {
@@ -88,7 +106,9 @@ button {
     border: none;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: calc(0.5vw + 0.5vh);
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    margin-top: 1vh;
 }
 
 button:hover {
@@ -102,7 +122,9 @@ button:hover {
     border-radius: 5px;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: calc(0.5vw + 0.5vh);
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-top: 0.5vh;
     cursor: pointer;
 }
 
@@ -122,7 +144,9 @@ button:active {
     border: none;
     padding-left: 1.5em;
     padding-right: 1.5em;
-    margin: calc(0.5vw + 0.5vh);
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    margin-top: 1vh;
 }
 
 .header {
@@ -313,9 +337,49 @@ button:active {
     /* grid-auto-flow: column; */
     row-gap: 1vw;
     column-gap: 1vh;
+    align-content:center;
 }
 
 #headerClock{
     margin-left:auto;
     margin-right:1vw;
+}
+
+#trackerPageFlex {
+    display:grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+   align-items: center;
+
+}
+
+#dayDisp {
+    width:100%;
+    height:100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#dayBar{
+   
+    width:80%;
+    height:80%;
+    background-color: #303030;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: column-reverse;
+    padding-bottom:1vh;
+}
+
+.dayBarItems {
+    width:95%;
+    margin-left:2.5%;
+    margin-right:2.5%;
+    margin-top:0.5%;
+    margin-bottom:0.5%;
+    border-radius:15px;
 }

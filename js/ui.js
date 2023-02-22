@@ -78,25 +78,33 @@ var uiText = {
     "newTrackerPage":{
         "onload": "timeInc(\'clear\')",
         "content": `
-        <input type=\"text\" title=\"unintel\" class=\"text-input\" placeholder=\"Name of tracker\" autocomplete=\"off\" id=\"trackerNameSet\"></input>
-        <input type=\"text\" title=\"unintel\" class=\"text-input\"  placeholder=\"Style\" autocomplete=\"off\" id=\"trackerColorSet\"></input>
-        <div class=\"time-select\">
-        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'hour\')\">↑</button>
-        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'min\')\">↑</button>
-        <button class=\"time-button\" onclick=\"timeInc(\'more\',\'secs\')\">↑</button>
-        <br>
-        <span id=\"the-hours\" class=\"fakep\">0</span>
-        <span class=\"fakep\">:</span>
-        <span id=\"the-mins\" class=\"fakep\">0</span>
-        <span class=\"fakep\">:</span>
-        <span id=\"the-secs\" class=\"fakep\">0</span>
-        <br>
-        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'hour\')\">↓</button>
-        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'min\')\">↓</button>
-        <button class=\"time-button\" onclick=\"timeInc(\'less\',\'secs\')\">↓</button>
+        <div id=\"trackerPageFlex\">
+            <div id=\"creationInputs\">
+                 <input type=\"text\" title=\"unintel\" class=\"text-input\" placeholder=\"Name of tracker\" autocomplete=\"off\" id=\"trackerNameSet\"></input>
+                 <input type=\"text\" title=\"unintel\" class=\"text-input\"  placeholder=\"Style\" autocomplete=\"off\" id=\"trackerColorSet\"></input>
+                    <div class=\"time-select\">
+                    <button class=\"time-button\" onclick=\"timeInc(\'more\',\'hour\')\">↑</button>
+                    <button class=\"time-button\" onclick=\"timeInc(\'more\',\'min\')\">↑</button>
+                    <button class=\"time-button\" onclick=\"timeInc(\'more\',\'secs\')\">↑</button>
+                    <br>
+                    <span id=\"the-hours\" class=\"fakep\">0</span>
+                    <span class=\"fakep\">:</span>
+                    <span id=\"the-mins\" class=\"fakep\">0</span>
+                    <span class=\"fakep\">:</span>
+                    <span id=\"the-secs\" class=\"fakep\">0</span>
+                    <br>
+                    <button class=\"time-button\" onclick=\"timeInc(\'less\',\'hour\')\">↓</button>
+                    <button class=\"time-button\" onclick=\"timeInc(\'less\',\'min\')\">↓</button>
+                    <button class=\"time-button\" onclick=\"timeInc(\'less\',\'secs\')\">↓</button>
+                    </div>
+                    <p1 id=\"warn\" style=\"color:red\"></p1> <br>
+                <button onclick=\"newTrackerCheck();\">submit</button>
+            </div>
+            <div id=\"dayDisp\">
+                <div id=\"dayBar\">
+                </div>
+            </div>
         </div>
-
-        <button onclick=\"addTracker(docId(\'trackerNameSet\').value,docId(\'trackerColorSet\').value,currentTimeInc(\'hour\'),currentTimeInc(\'min\'),currentTimeInc(\'sec\'));page(\'selectorPage\')\">submit</button>
         `
     },
     "welcomePage": {
@@ -135,6 +143,13 @@ var uiText = {
             "selector": "p",
             "styles": {
                 "color": "#FFF",
+                "fontFamily": "Figtree-Medium"
+            }
+  
+        },
+        {
+            "selector": "p1",
+            "styles": {
                 "fontFamily": "Figtree-Medium"
             }
   
@@ -252,8 +267,7 @@ var uiText = {
   var timeInfo = {
     offset : -5,
     deadline: {
-        hours:22,
-        mins:0
+        secs:79200,
     },
     trackers: [0],
 };
