@@ -1,65 +1,65 @@
 var uiText = {
-    "headerOptions": [{
-            "name": "File",
-            "content": [{
-                    "name": "clear lstime",
-                    "onclick": "rls(\"timeInfo\")"
-                },
-                {
-                    "name": "clear style",
-                    "onclick": "rls(\"uiStyle\")"
-                },
-                {
-                    "name": "export",
-                    "onclick": ""
-                }
-            ]
-        },
-        {
-            "name": "Window",
-            "content": [{
-                    "name": "main menu",
-                    "onclick": "page(0)"
-                },
-                {
-                    "name": "second page",
-                    "onclick": "page(1)"
-                },
-                {
-                    "name": "frog",
-                    "onclick": "page(\"settingsPage\")"
-                }
-            ]
-        },
-        {
-            "name": "Settings",
-            "content": [{
-                    "name": "cycle theme",
-                    "onclick": ""
-                },
-                {
-                    "name": "debug",
-                    "onclick": ""
-                },
-                {
-                    "name": "full settings",
-                    "onclick": "page(\"settingsPage\")"
-                }
-            ]
-        }
-    ],
-    "documentDropdown": [{
-            "name": "documentElements",
-            "content": [
-  
-            ]
-        }
-  
-    ],
-    pageIndex: ["welcomePage", "selectorPage"],
-    "settingsPage": {
-        "onload": "stylerDropdown()",
-        "content": `
+	"headerOptions": [{
+			"name": "File",
+			"content": [{
+					"name": "clear lstime",
+					"onclick": "rls(\"timeInfo\")"
+				},
+				{
+					"name": "clear style",
+					"onclick": "rls(\"uiStyle\")"
+				},
+				{
+					"name": "export",
+					"onclick": ""
+				}
+			]
+		},
+		{
+			"name": "Window",
+			"content": [{
+					"name": "main menu",
+					"onclick": "page(0)"
+				},
+				{
+					"name": "second page",
+					"onclick": "page(1)"
+				},
+				{
+					"name": "frog",
+					"onclick": "page(\"settingsPage\")"
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"content": [{
+					"name": "cycle theme",
+					"onclick": ""
+				},
+				{
+					"name": "debug",
+					"onclick": ""
+				},
+				{
+					"name": "full settings",
+					"onclick": "page(\"settingsPage\")"
+				}
+			]
+		}
+	],
+	"documentDropdown": [{
+			"name": "documentElements",
+			"content": [
+
+			]
+		}
+
+	],
+	pageIndex: ["welcomePage", "selectorPage"],
+	"settingsPage": {
+		"onload": "stylerDropdown()",
+		"content": `
         <div id=\"settings-grid\">
             <div id=\"stylerstuff\">
                 <input type=\"text\" id=\"backgroundInput\" placeholder=\"style\" class=\"text-input\"></input>
@@ -74,10 +74,10 @@ var uiText = {
             </div>
         </div>
         `
-    },
-    "newTrackerPage":{
-        "onload": "timeInc(\'clear\')",
-        "content": `
+	},
+	"newTrackerPage": {
+		"onload": "timeInc(\'clear\')",
+		"content": `
         <div id=\"trackerPageFlex\">
             <div id=\"creationInputs\">
                  <input type=\"text\" title=\"unintel\" class=\"text-input\" placeholder=\"Name of tracker\" autocomplete=\"off\" id=\"trackerNameSet\"></input>
@@ -106,19 +106,18 @@ var uiText = {
             </div>
         </div>
         `
-    },
-    "welcomePage": {
-        "onload": "",
-        "content": `
+	},
+	"welcomePage": {
+		"onload": "",
+		"content": `
         <h1 id=\"greetingHead\">Welcome!</h1>
         <p id=\"greetingBody1\">I see that this is your first time here... or you have cleared your localstorage</p>
         <button id=\"greetingButton\" onclick=\"page('next')\">ok</button>
         `
-    },
-    "selectorPage": {
-        "onload": "addTracker(\"updatePage\")",
-        "content": 
-        `
+	},
+	"selectorPage": {
+		"onload": "addTracker(\"updatePage\")",
+		"content": `
         <div class=\'selection-pos\'>
         <div id=\"selection-buttons\" class=\'selection-buttons\'>        
         <div style=\"\"><button id=\"addButton\" onclick=\"page(\'newTrackerPage\')\">add tracker</button></div>
@@ -128,148 +127,146 @@ var uiText = {
         </div>
     
         `
-    }
-  
-  };
-  
-  var uiStyle = {
-    elements: [{
-            "selector": "body",
-            "styles": {
-                "background": "#303030"
-            }
-        },
-        {
-            "selector": "p",
-            "styles": {
-                "color": "#FFF",
-                "fontFamily": "Figtree-Medium"
-            }
-  
-        },
-        {
-            "selector": "p1",
-            "styles": {
-                "fontFamily": "Figtree-Medium"
-            }
-  
-        },
-        {
-            "selector": ".fakep",
-            "styles": {
-                "color": "#FFF",
-                "fontFamily": "Figtree-Medium"
-            }
-  
-        },
-        {
-            "selector": "db",
-            "styles": {
-                "color": "#FFF",
-                "fontFamily": "Figtree-Medium",
-            }
-  
-        },
-        {
-            "selector": "db:hover",
-            "styles": {
-                "color": "#ccc",
-                "fontFamily": "Figtree-Medium",
-            }
-  
-        },
-        {
-            "selector": "h2",
-            "styles": {
-                "color": "#FFF",
-                "fontFamily": "Figtree-Medium"
-            }
-  
-        },
-        {
-            "selector": "h1",
-            "styles": {
-                "color": "#FFF",
-                "fontFamily": "Figtree-Bold"
-            }
-  
-        },
-        {
-            "selector": "button",
-            "styles": {
-                "color": "white",
-                "backgroundColor": "#212121"
-            }
-  
-        },
-        {
-            "selector": "button:hover",
-            "styles": {
-                "color": "white",
-                "backgroundColor": "#212121"
-            }
-  
-        },
-        {
-            "selector": "button:active",
-            "styles": {
-                "color": "white",
-                "backgroundColor": "#212121"
-            }
-  
-        },
-        {
-            "selector": ".header",
-            "styles": {
-                "background": "rgba(33,33,33,0.75)"
-            }
-  
-        },
-        {
-            "selector": ".headerButton",
-            "styles": {
-                "color": "#DDD"
-            }
-  
-        },
-        {
-            "selector": ".headerButton:hover",
-            "styles": {
-                "color": "#AAA"
-            }
-  
-        },
-        {
-            "selector": ".dropdown",
-            "styles": {
-                "backgroundColor": "#212121"
-            }
-  
-        },
-        {
-            "selector": ".content-container",
-            "styles": {
-                "background": "rgba(66,66,66,0.75)"
-            }
-  
-        },
-        {
-            "selector": ".text-input",
-            "styles": {
-                "background-color": "rgba(66,66,66,0.75)",
-                "color": "#FFF"
-            }
-  
-        },
-    ]
-  }
+	}
 
-  var timeInfo = {
-    offset : -5,
-    deadline: {
-        secs:79200,
-    },
-    trackers: [0],
 };
 
-    
+var uiStyle = {
+	elements: [{
+			"selector": "body",
+			"styles": {
+				"background": "#303030"
+			}
+		},
+		{
+			"selector": "p",
+			"styles": {
+				"color": "#FFF",
+				"fontFamily": "Figtree-Medium"
+			}
+
+		},
+		{
+			"selector": "p1",
+			"styles": {
+				"fontFamily": "Figtree-Medium"
+			}
+
+		},
+		{
+			"selector": ".fakep",
+			"styles": {
+				"color": "#FFF",
+				"fontFamily": "Figtree-Medium"
+			}
+
+		},
+		{
+			"selector": "db",
+			"styles": {
+				"color": "#FFF",
+				"fontFamily": "Figtree-Medium",
+			}
+
+		},
+		{
+			"selector": "db:hover",
+			"styles": {
+				"color": "#ccc",
+				"fontFamily": "Figtree-Medium",
+			}
+
+		},
+		{
+			"selector": "h2",
+			"styles": {
+				"color": "#FFF",
+				"fontFamily": "Figtree-Medium"
+			}
+
+		},
+		{
+			"selector": "h1",
+			"styles": {
+				"color": "#FFF",
+				"fontFamily": "Figtree-Bold"
+			}
+
+		},
+		{
+			"selector": "button",
+			"styles": {
+				"color": "white",
+				"backgroundColor": "#212121"
+			}
+
+		},
+		{
+			"selector": "button:hover",
+			"styles": {
+				"color": "white",
+				"backgroundColor": "#212121"
+			}
+
+		},
+		{
+			"selector": "button:active",
+			"styles": {
+				"color": "white",
+				"backgroundColor": "#212121"
+			}
+
+		},
+		{
+			"selector": ".header",
+			"styles": {
+				"background": "rgba(33,33,33,0.75)"
+			}
+
+		},
+		{
+			"selector": ".headerButton",
+			"styles": {
+				"color": "#DDD"
+			}
+
+		},
+		{
+			"selector": ".headerButton:hover",
+			"styles": {
+				"color": "#AAA"
+			}
+
+		},
+		{
+			"selector": ".dropdown",
+			"styles": {
+				"backgroundColor": "#212121"
+			}
+
+		},
+		{
+			"selector": ".content-container",
+			"styles": {
+				"background": "rgba(66,66,66,0.75)"
+			}
+
+		},
+		{
+			"selector": ".text-input",
+			"styles": {
+				"background-color": "rgba(66,66,66,0.75)",
+				"color": "#FFF"
+			}
+
+		},
+	]
+}
+
+var timeInfo = {
+	offset: -5,
+	deadline: {
+		secs: 79200,
+	},
+	trackers: [0],
+};

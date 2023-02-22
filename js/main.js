@@ -10,7 +10,7 @@ function sls(a, b) {
 
 function rls(a) {
   localStorage.removeItem(a);
-   console.log("%c'" + a + "' has been removed!", 'color: orange; font-size: 15px')
+//   console.log("%c'" + a + "' has been removed!", 'color: orange; font-size: 15px')
 //   console.trace();
 }
 
