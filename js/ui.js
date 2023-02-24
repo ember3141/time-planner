@@ -112,6 +112,7 @@ var uiText = {
 		"content": `
         <h1 id=\"greetingHead\">Welcome!</h1>
         <p id=\"greetingBody1\">I see that this is your first time here... or you have cleared your localstorage</p>
+		<p id=\"greetingBody1\">This helps you plan your time to a deadline by displaying the remaining time until the deadline, allowing you to create timers to structure your remaining time, and displays a helpful graphic that visualizes your time. Timers will always run, so you can safely navigate away from the page.</p>
         <button id=\"greetingButton\" onclick=\"page('next')\">ok</button>
         `
 	},
@@ -264,7 +265,6 @@ var uiStyle = {
 }
 
 var timeInfo = {
-	offset: -5,
 	deadline: {
 		secs: 79200,
 	},
